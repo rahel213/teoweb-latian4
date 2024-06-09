@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fungsi menghitung bola</title>
+</head>
+<body>
+    <label for="jari-jari">Masukkan nilai Jari-jari</label>
+    <input type="number" id="jari" placeholder="jari-jari bola">
+
+    <br>
+
+    <button onclick="hitung('luas')">Hitung Luas Permukaan</button>
+
+    <label for="luas">Luas permukaan bola</label>
+    <input type="text" id="luasPermukaan" placeholder="luas permukaan bola" readonly>
+
+    <br>
+
+    <button onclick="hitung('volume')">Hitung Volume Bola</button>
+
+    <label for="volumeBola">Volume Bola</label>
+    <input type="text" id="volumePermukaan" placeholder="Volume Bola" readonly>
+
+    <script>
+        function hitung(tipe) {
+            var radius = parseFloat(document.getElementById("jari").value);
+
+            if (isNaN(radius)) {
+                alert("Masukkan jari jari bola yang valid");
+                return;
+            }
+
+            // mrnghitung luas permukaan 
+            if (tipe=== 'luas') {
+                var hasil = 4 * Math.PI * Math.pow(radius, 2);
+                document.getElementById("luasPermukaan").value = hasil.toFixed(2);
+            }
+            // menghitung volume 
+            else if (tipe === 'volume') {
+                var hasil = (4/3) * Math.PI * Math.pow(radius, 3);
+                document.getElementById("volumePermukaan").value = hasil.toFixed(2);
+            }
+        }
+    </script>
+</body>
+</html>

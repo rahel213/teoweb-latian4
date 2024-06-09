@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kalkulator sederhana</title>
+  </head>
+  <body>
+    <h2>Ini adalah kalkulator sederhana</h2>
+    <!-- membuat textbox -->
+    <input type="number" id="bilangan1" placeholder="Masukkan angka" />
+    <input type="number" id="bilangan2" placeholder="Masukkan angka" />
+    <!-- membuat button -->
+    <button onclick="hitung ('+')">+</button>
+    <button onclick="hitung ('-')">-</button>
+    <button onclick="hitung ('*')">*</button>
+    <button onclick="hitung ('/')">/</button>
+    <button onclick="hasil ('hasil')">C</button>
+    <!-- textbox hasil -->
+    <input type="number" id="hasil" placeholder=" hasil" readonly />
+
+    <script>
+      function hitung(operator) {
+        // mendapatkan nilai dari kedua bilangan
+        var bil1 = parseFloat(document.getElementById("bilangan1").value);
+        var bil2 = parseFloat(document.getElementById("bilangan2").value);
+
+        // inisialisasi variable untuk menyimpan hasil
+        var hasil;
+
+        // melakukan operator
+        if (operator === "+") {
+          hasil = bil1 + bil2;
+        } else if (operator === "-") {
+          hasil = bil1 - bil2;
+        } else if (operator === "*") {
+          hasil = bil1 * bil2;
+        } else if (operator === "/") {
+          hasil = bil1 / bil2;
+        }
+
+        document.getElementById("hasil").value = hasil;
+      }
+
+      function hasil() {
+        document.getElementById("bilangan1").value = " ";
+        document.getElementById("bilangan2").value = " ";
+        document.getElementById("hasil").value = " ";
+      }
+    </script>
+  </body>
+</html>
